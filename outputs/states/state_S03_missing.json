@@ -1,0 +1,92 @@
+{
+  "thread_id": "thread-S03_missing",
+  "scenario_id": "S03_missing",
+  "query": "Can you fix it?",
+  "route": "missing_info",
+  "risk_level": "low",
+  "attempt": 0,
+  "max_attempts": 3,
+  "final_answer": "Your request is missing context. Please specify the entity (order/account/ticket id) and the action you want us to take.",
+  "pending_question": "Your request is missing context. Please specify the entity (order/account/ticket id) and the action you want us to take.",
+  "proposed_action": null,
+  "approval": null,
+  "evaluation_result": null,
+  "messages": [
+    "intake:Can you fix it?",
+    "intake:Can you fix it?"
+  ],
+  "tool_results": [],
+  "errors": [],
+  "events": [
+    {
+      "node": "intake",
+      "event_type": "completed",
+      "message": "query normalized",
+      "latency_ms": 0,
+      "metadata": {
+        "length": 15
+      }
+    },
+    {
+      "node": "classify",
+      "event_type": "completed",
+      "message": "route=missing_info",
+      "latency_ms": 0,
+      "metadata": {
+        "token_count": 4,
+        "risk_level": "low"
+      }
+    },
+    {
+      "node": "clarify",
+      "event_type": "completed",
+      "message": "missing information requested",
+      "latency_ms": 0,
+      "metadata": {
+        "question": "Your request is missing context. Please specify the entity (order/account/ticket id) and the action you want us to take."
+      }
+    },
+    {
+      "node": "finalize",
+      "event_type": "completed",
+      "message": "workflow finished",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "intake",
+      "event_type": "completed",
+      "message": "query normalized",
+      "latency_ms": 0,
+      "metadata": {
+        "length": 15
+      }
+    },
+    {
+      "node": "classify",
+      "event_type": "completed",
+      "message": "route=missing_info",
+      "latency_ms": 0,
+      "metadata": {
+        "token_count": 4,
+        "risk_level": "low"
+      }
+    },
+    {
+      "node": "clarify",
+      "event_type": "completed",
+      "message": "missing information requested",
+      "latency_ms": 0,
+      "metadata": {
+        "question": "Your request is missing context. Please specify the entity (order/account/ticket id) and the action you want us to take."
+      }
+    },
+    {
+      "node": "finalize",
+      "event_type": "completed",
+      "message": "workflow finished",
+      "latency_ms": 0,
+      "metadata": {}
+    }
+  ]
+}

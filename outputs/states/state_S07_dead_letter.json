@@ -1,0 +1,117 @@
+{
+  "thread_id": "thread-S07_dead_letter",
+  "scenario_id": "S07_dead_letter",
+  "query": "System failure cannot recover after multiple attempts",
+  "route": "error",
+  "risk_level": "medium",
+  "attempt": 1,
+  "max_attempts": 1,
+  "final_answer": "Request could not be completed after 1 attempts. Escalated to manual review (dead-letter queue).",
+  "pending_question": null,
+  "proposed_action": null,
+  "approval": null,
+  "evaluation_result": null,
+  "messages": [
+    "intake:System failure cannot recover after mult",
+    "intake:System failure cannot recover after mult"
+  ],
+  "tool_results": [],
+  "errors": [
+    "transient failure attempt=1/1",
+    "dead_letter attempts=1",
+    "transient failure attempt=1/1",
+    "dead_letter attempts=1"
+  ],
+  "events": [
+    {
+      "node": "intake",
+      "event_type": "completed",
+      "message": "query normalized",
+      "latency_ms": 0,
+      "metadata": {
+        "length": 53
+      }
+    },
+    {
+      "node": "classify",
+      "event_type": "completed",
+      "message": "route=error",
+      "latency_ms": 0,
+      "metadata": {
+        "token_count": 7,
+        "risk_level": "medium"
+      }
+    },
+    {
+      "node": "retry",
+      "event_type": "completed",
+      "message": "retry attempt 1/1",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 1,
+        "max_attempts": 1
+      }
+    },
+    {
+      "node": "dead_letter",
+      "event_type": "completed",
+      "message": "max retries exceeded attempt=1",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 1
+      }
+    },
+    {
+      "node": "finalize",
+      "event_type": "completed",
+      "message": "workflow finished",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "intake",
+      "event_type": "completed",
+      "message": "query normalized",
+      "latency_ms": 0,
+      "metadata": {
+        "length": 53
+      }
+    },
+    {
+      "node": "classify",
+      "event_type": "completed",
+      "message": "route=error",
+      "latency_ms": 0,
+      "metadata": {
+        "token_count": 7,
+        "risk_level": "medium"
+      }
+    },
+    {
+      "node": "retry",
+      "event_type": "completed",
+      "message": "retry attempt 1/1",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 1,
+        "max_attempts": 1
+      }
+    },
+    {
+      "node": "dead_letter",
+      "event_type": "completed",
+      "message": "max retries exceeded attempt=1",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 1
+      }
+    },
+    {
+      "node": "finalize",
+      "event_type": "completed",
+      "message": "workflow finished",
+      "latency_ms": 0,
+      "metadata": {}
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+Wrote fan-out diagram: outputs\graph_fanout.mmd
+
+fan-out wall-clock: 206 ms (sequential would be ~400ms; <400ms proves true parallelism)
+tool_results count: 2
+  - order_lookup: result for 'order 12345 status and shipment' (sim_latency_ms=200)
+  - shipment_tracker: result for 'order 12345 status and shipment' (sim_latency_ms=200)
+
+final_answer: Merged from 2 tools: order_lookup: result for 'order 12345 status and shipment' (sim_latency_ms=200) | shipment_tracker: result for 'order 12345 status and shipment' (sim_latency_ms=200)
+events:
+  * plan: dispatching 2 tools in parallel
+  * worker[order_lookup] finished in ~200ms
+  * worker[shipment_tracker] finished in ~200ms
+  * merge: combined 2 tool results
+
+Fan-out OK: workers ran concurrently and merged via add reducer.

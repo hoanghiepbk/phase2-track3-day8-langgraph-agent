@@ -1,0 +1,163 @@
+{
+  "thread_id": "thread-S04_risky",
+  "scenario_id": "S04_risky",
+  "query": "Refund this customer and send confirmation email",
+  "route": "risky",
+  "risk_level": "high",
+  "attempt": 0,
+  "max_attempts": 3,
+  "final_answer": "[approved by mock-reviewer] Tool says: OK: lookup_result scenario=S04_risky attempt=0",
+  "pending_question": null,
+  "proposed_action": "Proposed action: 'Refund this customer and send confirmation email'. Risk=high. Awaiting human approval before execution.",
+  "approval": {
+    "approved": true,
+    "reviewer": "mock-reviewer",
+    "comment": "mock approval for lab"
+  },
+  "evaluation_result": "success",
+  "messages": [
+    "intake:Refund this customer and send confirmati",
+    "intake:Refund this customer and send confirmati"
+  ],
+  "tool_results": [
+    "OK: lookup_result scenario=S04_risky attempt=0",
+    "OK: lookup_result scenario=S04_risky attempt=0"
+  ],
+  "errors": [],
+  "events": [
+    {
+      "node": "intake",
+      "event_type": "completed",
+      "message": "query normalized",
+      "latency_ms": 0,
+      "metadata": {
+        "length": 48
+      }
+    },
+    {
+      "node": "classify",
+      "event_type": "completed",
+      "message": "route=risky",
+      "latency_ms": 0,
+      "metadata": {
+        "token_count": 7,
+        "risk_level": "high"
+      }
+    },
+    {
+      "node": "risky_action",
+      "event_type": "pending_approval",
+      "message": "approval required",
+      "latency_ms": 0,
+      "metadata": {
+        "risk_level": "high"
+      }
+    },
+    {
+      "node": "approval",
+      "event_type": "completed",
+      "message": "approved=True",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "tool",
+      "event_type": "completed",
+      "message": "tool executed attempt=0",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 0
+      }
+    },
+    {
+      "node": "evaluate",
+      "event_type": "completed",
+      "message": "success",
+      "latency_ms": 0,
+      "metadata": {
+        "latest_result": "OK: lookup_result scenario=S04_risky attempt=0"
+      }
+    },
+    {
+      "node": "answer",
+      "event_type": "completed",
+      "message": "answer generated",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "finalize",
+      "event_type": "completed",
+      "message": "workflow finished",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "intake",
+      "event_type": "completed",
+      "message": "query normalized",
+      "latency_ms": 0,
+      "metadata": {
+        "length": 48
+      }
+    },
+    {
+      "node": "classify",
+      "event_type": "completed",
+      "message": "route=risky",
+      "latency_ms": 0,
+      "metadata": {
+        "token_count": 7,
+        "risk_level": "high"
+      }
+    },
+    {
+      "node": "risky_action",
+      "event_type": "pending_approval",
+      "message": "approval required",
+      "latency_ms": 0,
+      "metadata": {
+        "risk_level": "high"
+      }
+    },
+    {
+      "node": "approval",
+      "event_type": "completed",
+      "message": "approved=True",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "tool",
+      "event_type": "completed",
+      "message": "tool executed attempt=0",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 0
+      }
+    },
+    {
+      "node": "evaluate",
+      "event_type": "completed",
+      "message": "success",
+      "latency_ms": 0,
+      "metadata": {
+        "latest_result": "OK: lookup_result scenario=S04_risky attempt=0"
+      }
+    },
+    {
+      "node": "answer",
+      "event_type": "completed",
+      "message": "answer generated",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "finalize",
+      "event_type": "completed",
+      "message": "workflow finished",
+      "latency_ms": 0,
+      "metadata": {}
+    }
+  ]
+}

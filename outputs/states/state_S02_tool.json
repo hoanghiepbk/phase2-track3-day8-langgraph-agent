@@ -1,0 +1,127 @@
+{
+  "thread_id": "thread-S02_tool",
+  "scenario_id": "S02_tool",
+  "query": "Please lookup order status for order 12345",
+  "route": "tool",
+  "risk_level": "low",
+  "attempt": 0,
+  "max_attempts": 3,
+  "final_answer": "Tool says: OK: lookup_result scenario=S02_tool attempt=0",
+  "pending_question": null,
+  "proposed_action": null,
+  "approval": null,
+  "evaluation_result": "success",
+  "messages": [
+    "intake:Please lookup order status for order 123",
+    "intake:Please lookup order status for order 123"
+  ],
+  "tool_results": [
+    "OK: lookup_result scenario=S02_tool attempt=0",
+    "OK: lookup_result scenario=S02_tool attempt=0"
+  ],
+  "errors": [],
+  "events": [
+    {
+      "node": "intake",
+      "event_type": "completed",
+      "message": "query normalized",
+      "latency_ms": 0,
+      "metadata": {
+        "length": 42
+      }
+    },
+    {
+      "node": "classify",
+      "event_type": "completed",
+      "message": "route=tool",
+      "latency_ms": 0,
+      "metadata": {
+        "token_count": 7,
+        "risk_level": "low"
+      }
+    },
+    {
+      "node": "tool",
+      "event_type": "completed",
+      "message": "tool executed attempt=0",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 0
+      }
+    },
+    {
+      "node": "evaluate",
+      "event_type": "completed",
+      "message": "success",
+      "latency_ms": 0,
+      "metadata": {
+        "latest_result": "OK: lookup_result scenario=S02_tool attempt=0"
+      }
+    },
+    {
+      "node": "answer",
+      "event_type": "completed",
+      "message": "answer generated",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "finalize",
+      "event_type": "completed",
+      "message": "workflow finished",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "intake",
+      "event_type": "completed",
+      "message": "query normalized",
+      "latency_ms": 0,
+      "metadata": {
+        "length": 42
+      }
+    },
+    {
+      "node": "classify",
+      "event_type": "completed",
+      "message": "route=tool",
+      "latency_ms": 0,
+      "metadata": {
+        "token_count": 7,
+        "risk_level": "low"
+      }
+    },
+    {
+      "node": "tool",
+      "event_type": "completed",
+      "message": "tool executed attempt=0",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 0
+      }
+    },
+    {
+      "node": "evaluate",
+      "event_type": "completed",
+      "message": "success",
+      "latency_ms": 0,
+      "metadata": {
+        "latest_result": "OK: lookup_result scenario=S02_tool attempt=0"
+      }
+    },
+    {
+      "node": "answer",
+      "event_type": "completed",
+      "message": "answer generated",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "finalize",
+      "event_type": "completed",
+      "message": "workflow finished",
+      "latency_ms": 0,
+      "metadata": {}
+    }
+  ]
+}

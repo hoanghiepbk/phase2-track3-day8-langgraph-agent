@@ -1,0 +1,8 @@
+
+==============================================================================
+PHASE 3/3 - TIME-TRAVEL REPLAY from an intermediate checkpoint
+==============================================================================
+Resuming from step=4 next=('evaluate',) checkpoint_id=1f14ced8-7c82-6ebf-8004-27217c86f85c
+Replayed final_answer : Tool says: OK: lookup_result scenario=resume_demo attempt=2
+Replayed events count : 10
+Time-travel replay succeeded - state is deterministic from any checkpoint.

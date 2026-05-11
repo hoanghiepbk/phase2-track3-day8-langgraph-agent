@@ -1,0 +1,20 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.0.3, pluggy-1.6.0
+rootdir: C:\Users\Hiep\phase2-track3-day8-langgraph-agent
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.13.0, langsmith-0.8.3, cov-7.1.0
+collected 11 items
+
+tests\test_graph_smoke.py ...                                            [ 27%]
+tests\test_metrics.py ..                                                 [ 45%]
+tests\test_routing.py ....                                               [ 81%]
+tests\test_state.py ..                                                   [100%]
+
+============================== warnings summary ===============================
+tests/test_graph_smoke.py::test_graph_runs_basic_routes[How do I reset my password?-simple]
+  C:\Users\Hiep\phase2-track3-day8-langgraph-agent\.venv\Lib\site-packages\langgraph\checkpoint\serde\encrypted.py:5: LangChainPendingDeprecationWarning: The default value of `allowed_objects` will change in a future version. Pass an explicit value (e.g., allowed_objects='messages' or allowed_objects='core') to suppress this warning.
+    from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 11 passed, 1 warning in 0.20s ========================

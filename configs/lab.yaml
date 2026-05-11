@@ -1,3 +1,7 @@
 scenarios_path: data/sample/scenarios.jsonl
-checkpointer: memory
-report_path: reports/lab_report.md
+checkpointer: sqlite
+database_url: outputs/checkpoints.db
+# The hand-written report lives at reports/lab_report.md; we write a machine-readable
+# metrics snapshot here so the comprehensive report is never overwritten on rerun.
+report_path: reports/lab_report_auto.md
+resume_success: true

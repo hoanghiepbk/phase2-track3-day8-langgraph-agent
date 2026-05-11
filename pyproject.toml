@@ -22,6 +22,7 @@ dev = [
   "pytest-cov>=5.0",
   "ruff>=0.5.0",
   "mypy>=1.10",
+  "types-PyYAML>=6.0",
 ]
 sqlite = ["langgraph-checkpoint-sqlite>=2.0"]
 postgres = ["langgraph-checkpoint-postgres>=2.0"]
@@ -38,7 +39,15 @@ target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "N", "ANN"]
-ignore = ["ANN101", "ANN102"]
+# ANN401: typing.Any is unavoidable when wrapping LangGraph's checkpointer/state objects.
+ignore = ["ANN401"]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests do not need full annotations; E402 is required because langgraph imports come after a
+# pytest.mark.skipif guard.
+"tests/*" = ["ANN001", "ANN201", "ANN202", "E402"]
+# Scripts mutate sys.path before importing local packages, which triggers E402.
+"scripts/*" = ["E402"]
 
 [tool.pytest.ini_options]
 minversion = "8.0"

@@ -1,30 +1,32 @@
-"""Routing functions for conditional edges."""
+"""Conditional-edge routing functions.
+
+Each function reads the current ``AgentState`` and returns the name of the next node.
+Routers are intentionally side-effect-free so they can be unit-tested without invoking
+LangGraph.
+"""
 
 from __future__ import annotations
 
 from .state import AgentState, Route
 
+_CLASSIFY_NEXT: dict[str, str] = {
+    Route.SIMPLE.value: "answer",
+    Route.TOOL.value: "tool",
+    Route.MISSING_INFO.value: "clarify",
+    Route.RISKY.value: "risky_action",
+    Route.ERROR.value: "retry",
+}
+
 
 def route_after_classify(state: AgentState) -> str:
-    """Map classified route to the next graph node.
-
-    TODO(student): handle unknown routes safely and update tests for edge cases.
-    """
-    route = state.get("route", Route.SIMPLE.value)
-    mapping = {
-        Route.SIMPLE.value: "answer",
-        Route.TOOL.value: "tool",
-        Route.MISSING_INFO.value: "clarify",
-        Route.RISKY.value: "risky_action",
-        Route.ERROR.value: "retry",
-    }
-    return mapping.get(route, "answer")
+    """Map the classified route to the next node. Unknown routes fall back to ``answer``."""
+    return _CLASSIFY_NEXT.get(state.get("route", Route.SIMPLE.value), "answer")
 
 
 def route_after_retry(state: AgentState) -> str:
-    """Decide whether to retry, fallback, or dead-letter.
+    """Decide whether to retry the tool again or escalate to ``dead_letter``.
 
-    TODO(student): implement bounded retry and dead-letter routing.
+    The retry loop is bounded by ``state['max_attempts']`` so the graph always terminates.
     """
     if int(state.get("attempt", 0)) >= int(state.get("max_attempts", 3)):
         return "dead_letter"
@@ -32,10 +34,10 @@ def route_after_retry(state: AgentState) -> str:
 
 
 def route_after_evaluate(state: AgentState) -> str:
-    """Decide whether tool result is satisfactory or needs retry.
+    """The 'done?' check that closes the retry loop.
 
-    This is the 'done?' check that enables retry loops — a key LangGraph advantage over LCEL.
-    TODO(student): replace heuristic with LLM-as-judge or structured validation.
+    Reads ``state['evaluation_result']`` produced by :func:`evaluate_node`; a value of
+    ``needs_retry`` re-enters the retry node, anything else proceeds to ``answer``.
     """
     if state.get("evaluation_result") == "needs_retry":
         return "retry"
@@ -43,9 +45,10 @@ def route_after_evaluate(state: AgentState) -> str:
 
 
 def route_after_approval(state: AgentState) -> str:
-    """Continue only if approved.
+    """Continue execution only if the human approved the proposed action.
 
-    TODO(student): support reject/edit outcomes.
+    A rejection ('approved=False') is treated as a safety fallback that hands control to
+    the clarification node instead of executing the risky action.
     """
     approval = state.get("approval") or {}
     return "tool" if approval.get("approved") else "clarify"

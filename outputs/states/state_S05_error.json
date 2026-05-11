@@ -1,0 +1,210 @@
+{
+  "thread_id": "thread-S05_error",
+  "scenario_id": "S05_error",
+  "query": "Timeout failure while processing request",
+  "route": "error",
+  "risk_level": "medium",
+  "attempt": 2,
+  "max_attempts": 3,
+  "final_answer": "Tool says: OK: lookup_result scenario=S05_error attempt=2",
+  "pending_question": null,
+  "proposed_action": null,
+  "approval": null,
+  "evaluation_result": "success",
+  "messages": [
+    "intake:Timeout failure while processing request",
+    "intake:Timeout failure while processing request"
+  ],
+  "tool_results": [
+    "ERROR: transient failure attempt=1 scenario=S05_error",
+    "OK: lookup_result scenario=S05_error attempt=2",
+    "ERROR: transient failure attempt=1 scenario=S05_error",
+    "OK: lookup_result scenario=S05_error attempt=2"
+  ],
+  "errors": [
+    "transient failure attempt=1/3",
+    "transient failure attempt=2/3",
+    "transient failure attempt=1/3",
+    "transient failure attempt=2/3"
+  ],
+  "events": [
+    {
+      "node": "intake",
+      "event_type": "completed",
+      "message": "query normalized",
+      "latency_ms": 0,
+      "metadata": {
+        "length": 40
+      }
+    },
+    {
+      "node": "classify",
+      "event_type": "completed",
+      "message": "route=error",
+      "latency_ms": 0,
+      "metadata": {
+        "token_count": 5,
+        "risk_level": "medium"
+      }
+    },
+    {
+      "node": "retry",
+      "event_type": "completed",
+      "message": "retry attempt 1/3",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 1,
+        "max_attempts": 3
+      }
+    },
+    {
+      "node": "tool",
+      "event_type": "transient_failure",
+      "message": "tool executed attempt=1",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 1
+      }
+    },
+    {
+      "node": "evaluate",
+      "event_type": "completed",
+      "message": "needs_retry",
+      "latency_ms": 0,
+      "metadata": {
+        "latest_result": "ERROR: transient failure attempt=1 scenario=S05_error"
+      }
+    },
+    {
+      "node": "retry",
+      "event_type": "completed",
+      "message": "retry attempt 2/3",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 2,
+        "max_attempts": 3
+      }
+    },
+    {
+      "node": "tool",
+      "event_type": "completed",
+      "message": "tool executed attempt=2",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 2
+      }
+    },
+    {
+      "node": "evaluate",
+      "event_type": "completed",
+      "message": "success",
+      "latency_ms": 0,
+      "metadata": {
+        "latest_result": "OK: lookup_result scenario=S05_error attempt=2"
+      }
+    },
+    {
+      "node": "answer",
+      "event_type": "completed",
+      "message": "answer generated",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "finalize",
+      "event_type": "completed",
+      "message": "workflow finished",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "intake",
+      "event_type": "completed",
+      "message": "query normalized",
+      "latency_ms": 0,
+      "metadata": {
+        "length": 40
+      }
+    },
+    {
+      "node": "classify",
+      "event_type": "completed",
+      "message": "route=error",
+      "latency_ms": 0,
+      "metadata": {
+        "token_count": 5,
+        "risk_level": "medium"
+      }
+    },
+    {
+      "node": "retry",
+      "event_type": "completed",
+      "message": "retry attempt 1/3",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 1,
+        "max_attempts": 3
+      }
+    },
+    {
+      "node": "tool",
+      "event_type": "transient_failure",
+      "message": "tool executed attempt=1",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 1
+      }
+    },
+    {
+      "node": "evaluate",
+      "event_type": "completed",
+      "message": "needs_retry",
+      "latency_ms": 0,
+      "metadata": {
+        "latest_result": "ERROR: transient failure attempt=1 scenario=S05_error"
+      }
+    },
+    {
+      "node": "retry",
+      "event_type": "completed",
+      "message": "retry attempt 2/3",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 2,
+        "max_attempts": 3
+      }
+    },
+    {
+      "node": "tool",
+      "event_type": "completed",
+      "message": "tool executed attempt=2",
+      "latency_ms": 0,
+      "metadata": {
+        "attempt": 2
+      }
+    },
+    {
+      "node": "evaluate",
+      "event_type": "completed",
+      "message": "success",
+      "latency_ms": 0,
+      "metadata": {
+        "latest_result": "OK: lookup_result scenario=S05_error attempt=2"
+      }
+    },
+    {
+      "node": "answer",
+      "event_type": "completed",
+      "message": "answer generated",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "finalize",
+      "event_type": "completed",
+      "message": "workflow finished",
+      "latency_ms": 0,
+      "metadata": {}
+    }
+  ]
+}

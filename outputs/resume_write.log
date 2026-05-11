@@ -1,0 +1,11 @@
+
+==============================================================================
+PHASE 1/3 - WRITE: run graph end-to-end and persist checkpoints
+==============================================================================
+thread_id        : thread-resume_demo
+db_path          : outputs/checkpoints.db
+actual_route     : error
+attempt          : 2
+evaluation_result: success
+final_answer     : Tool says: OK: lookup_result scenario=resume_demo attempt=2
+events recorded  : 10

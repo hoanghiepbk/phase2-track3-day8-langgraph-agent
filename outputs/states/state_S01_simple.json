@@ -1,0 +1,88 @@
+{
+  "thread_id": "thread-S01_simple",
+  "scenario_id": "S01_simple",
+  "query": "How do I reset my password?",
+  "route": "simple",
+  "risk_level": "low",
+  "attempt": 0,
+  "max_attempts": 3,
+  "final_answer": "Direct response: your request can be handled without a tool call.",
+  "pending_question": null,
+  "proposed_action": null,
+  "approval": null,
+  "evaluation_result": null,
+  "messages": [
+    "intake:How do I reset my password?",
+    "intake:How do I reset my password?"
+  ],
+  "tool_results": [],
+  "errors": [],
+  "events": [
+    {
+      "node": "intake",
+      "event_type": "completed",
+      "message": "query normalized",
+      "latency_ms": 0,
+      "metadata": {
+        "length": 27
+      }
+    },
+    {
+      "node": "classify",
+      "event_type": "completed",
+      "message": "route=simple",
+      "latency_ms": 0,
+      "metadata": {
+        "token_count": 6,
+        "risk_level": "low"
+      }
+    },
+    {
+      "node": "answer",
+      "event_type": "completed",
+      "message": "answer generated",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "finalize",
+      "event_type": "completed",
+      "message": "workflow finished",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "intake",
+      "event_type": "completed",
+      "message": "query normalized",
+      "latency_ms": 0,
+      "metadata": {
+        "length": 27
+      }
+    },
+    {
+      "node": "classify",
+      "event_type": "completed",
+      "message": "route=simple",
+      "latency_ms": 0,
+      "metadata": {
+        "token_count": 6,
+        "risk_level": "low"
+      }
+    },
+    {
+      "node": "answer",
+      "event_type": "completed",
+      "message": "answer generated",
+      "latency_ms": 0,
+      "metadata": {}
+    },
+    {
+      "node": "finalize",
+      "event_type": "completed",
+      "message": "workflow finished",
+      "latency_ms": 0,
+      "metadata": {}
+    }
+  ]
+}

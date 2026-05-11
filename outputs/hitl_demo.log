@@ -1,0 +1,22 @@
+
+==============================================================================
+PHASE 1 - INVOKE: expect graph to suspend at approval node
+==============================================================================
+after first invoke -- next nodes : ('approval',)
+after first invoke -- final_answer present? True
+  interrupt payload: {'proposed_action': "Proposed action: 'Refund this customer and send confirmation email'. Risk=high. Awaiting human approval before execution.", 'risk_level': 'high'}
+events captured before approval: 3
+
+==============================================================================
+PHASE 2 - RESUME with approver decision via Command(resume=...)
+==============================================================================
+sending approval decision: {'approved': True, 'reviewer': 'hoang-hiep', 'comment': 'verified refund eligibility'}
+after resume -- route       : risky
+after resume -- approval    : {'approved': True, 'reviewer': 'hoang-hiep', 'comment': 'verified refund eligibility'}
+after resume -- final_answer: [approved by hoang-hiep] Tool says: OK: lookup_result scenario=hitl_demo attempt=0
+after resume -- events count: 8
+
+total checkpoints in DB     : 10
+approval events in history  : 1
+
+Real HITL flow OK: interrupt suspended the run, Command(resume=...) resumed it.

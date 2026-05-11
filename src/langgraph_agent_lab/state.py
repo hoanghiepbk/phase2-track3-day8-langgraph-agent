@@ -6,9 +6,9 @@ Students should extend the schema only when needed. Keep state lean and serializ
 from __future__ import annotations
 
 from enum import StrEnum
+from operator import add
 from typing import Annotated, Any, TypedDict
 
-from operator import add
 from pydantic import BaseModel, Field, field_validator
 
 
@@ -41,8 +41,13 @@ class ApprovalDecision(BaseModel):
 class AgentState(TypedDict, total=False):
     """LangGraph state.
 
-    TODO(student): decide which fields should be append-only and which should be overwritten.
-    The current annotations give a safe starting point for auditability.
+    Reducer choices (see report §3 for the full rationale):
+
+    - ``messages``, ``tool_results``, ``errors`` and ``events`` use the ``add`` reducer so
+      every node can contribute entries without colliding (essential for parallel fan-out
+      where multiple worker tasks write into the same field).
+    - All other fields are overwrite-on-write — they represent the *latest* value of a
+      single semantic slot (route, attempt counter, final answer, approval decision, ...).
     """
 
     thread_id: str
@@ -104,4 +109,6 @@ def initial_state(scenario: Scenario) -> AgentState:
 
 def make_event(node: str, event_type: str, message: str, **metadata: Any) -> dict[str, Any]:
     """Create a normalized event payload."""
-    return LabEvent(node=node, event_type=event_type, message=message, metadata=metadata).model_dump()
+    return LabEvent(
+        node=node, event_type=event_type, message=message, metadata=metadata
+    ).model_dump()

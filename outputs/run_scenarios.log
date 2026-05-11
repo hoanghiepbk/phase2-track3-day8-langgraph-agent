@@ -1,0 +1,20 @@
+.\.venv\Scripts\python.exe : 
+C:\Users\Hiep\phase2-track3-day8-langgraph-agent\.venv\Lib\site-packages\langgraph\checkpoint\serde\encrypted.py:5: 
+LangChainPendingDeprecationWarning: The default value of `allowed_objects` will change in a future version. Pass an 
+explicit value (e.g., allowed_objects='messages' or allowed_objects='core') to suppress this warning.
+At line:2 char:528
++ ... )); $slog = .\.venv\Scripts\python.exe -m langgraph_agent_lab.cli run ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\Hiep\p...s this warning.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+[S01_simple] route=simple success=True retries=0 interrupts=0 latency_ms=10
+[S02_tool] route=tool success=True retries=0 interrupts=0 latency_ms=5
+[S03_missing] route=missing_info success=True retries=0 interrupts=0 latency_ms=3
+[S04_risky] route=risky success=True retries=0 interrupts=2 latency_ms=5
+[S05_error] route=error success=True retries=4 interrupts=0 latency_ms=7
+[S06_delete] route=risky success=True retries=0 interrupts=2 latency_ms=5
+[S07_dead_letter] route=error success=True retries=2 interrupts=0 latency_ms=3
+
+Wrote metrics to outputs\metrics.json (success_rate=100.00%, total_retries=6, total_interrupts=4)

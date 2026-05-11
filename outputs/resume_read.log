@@ -1,0 +1,21 @@
+
+==============================================================================
+PHASE 2/3 - READ AFTER 'RESTART': re-open SQLite and replay history
+==============================================================================
+checkpoints found: 12
+step  next                writes
+------------------------------------------------------------------------------
+  -1  __start__           []
+   0  intake              []
+   1  classify            []
+   2  retry               []
+   3  tool                []
+   4  evaluate            []
+   5  retry               []
+   6  tool                []
+   7  evaluate            []
+   8  answer              []
+   9  finalize            []
+  10  <END>               []
+
+Final answer after replay: Tool says: OK: lookup_result scenario=resume_demo attempt=2
